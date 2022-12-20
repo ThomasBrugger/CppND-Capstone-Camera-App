@@ -52,7 +52,7 @@ MyFrame::MyFrame(const wxString& title)
     : wxFrame(NULL, wxID_ANY, title)
 {
     // set the frame icon
-    SetIcon(wxICON(_T("../files/RobotBtn.bmp")));
+    //SetIcon(wxICON(_T("../files/RobotBtn.bmp")));
 
     // create a menu bar
     wxMenu* fileMenu = new wxMenu;
