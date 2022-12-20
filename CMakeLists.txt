@@ -5,6 +5,7 @@ file(GLOB project_SRCS src/*.cpp)
 add_executable(CameraApp ${project_SRCS})
 
 find_package(wxWidgets REQUIRED COMPONENTS core base)
+include(${wxWidgets_USE_FILE})
 target_link_libraries(CameraApp ${wxWidgets_LIBRARIES})
 target_include_directories(CameraApp PRIVATE ${wxWidgets_INCLUDE_DIRS})
 
