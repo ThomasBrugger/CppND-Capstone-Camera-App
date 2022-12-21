@@ -55,3 +55,4 @@ In this project, you can build your own C++ application starting with this repo,
 * The project uses multithreading.
   Example: Camera.cpp Line 12-17 Camera::startCameraThread
 * A mutex or lock is used in the project.
+  Example: Camera.cpp Camera::isSnapping
