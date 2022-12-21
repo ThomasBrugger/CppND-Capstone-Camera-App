@@ -26,7 +26,7 @@ In this project, you can build your own C++ application starting with this repo,
 4. Run it: `./CameraApp`.
 
 ## Rubric Points
-# Loops, Functions, I/O
+### Loops, Functions, I/O
 * The project demonstrates an understanding of C++ functions and control structures.
   * While-Loop: i.e. Camera.cpp Line 32-44
   * For-Loop: i.e. Imageprocessor.cpp Line Line 23-34
@@ -38,7 +38,7 @@ In this project, you can build your own C++ application starting with this repo,
 * The project accepts user input and processes the input.
  * File Reading: i.e. App.cpp Line 346-366 MyFrame::OnMakeRobotFace
  
-# Object Oriented Programming
+### Object Oriented Programming
 * The project uses Object Oriented Programming techniques.
   * File Camera.h, App.h, Imageprocessor.h
 * Classes use appropriate access specifiers for class members.
@@ -47,11 +47,11 @@ In this project, you can build your own C++ application starting with this repo,
   Getter: i.e. Camera.cpp Line 75-77 Camera::getWindowName
   Setter: i.e. Camera.cpp Line 79-81 Camera::setWindowName
 
-# Memory Management
+### Memory Management
 * The project makes use of references in function declarations.
   Examples: App.cpp Line 439-443 MyFrame::checkExistance and all Eventhandler Functions
 
-# Concurrency
+### Concurrency
 * The project uses multithreading.
   Example: Camera.cpp Line 12-17 Camera::startCameraThread
 * A mutex or lock is used in the project.
