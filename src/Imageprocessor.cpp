@@ -37,6 +37,7 @@ std::vector<FacePosition> Imageprocessor::detectFace(std::string fileName, bool 
     cv::namedWindow("Face Detection");
     cv::imshow("Face Detection", image_with_humanface);
     cv::waitKey(0); //Window will only be closed by "x"
+    cv::destroyWindow("Face Detection");
    }
 
    return FacePosContainer;
@@ -64,6 +65,7 @@ void Imageprocessor::makeRobotFace(std::string fileName, bool showWnd, bool save
         cv::namedWindow("Make Robot Face");
         cv::imshow("Make Robot Face", bigImage);
         cv::waitKey(0); //Window will only be closed by "x"
+        cv::destroyWindow("Make Robot Face");
     }
     //Will be removed, when image date is passed by pointer
     if (saveImg){
