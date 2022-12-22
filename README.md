@@ -42,9 +42,10 @@ You can take pictures with your webcam and change your face to a "a.w.e.s.o.m-o"
   4. choose "Save" in menue "File" to save the image in the "file"-directory
 
 * without webcam:
-  1. choose "Detect Face" or "Make Robot Face"-Mode in menu "OpenCv" (try oth wirt "test", an AI generated picture)
+  1. choose "Detect Face" or "Make Robot Face"-Mode in menu "OpenCv"
   2. Load a file that is located in the "file"-directory of this programm by typing its name without file extension.
-  3. See the result and press any key if you want to close the window
+     (try both witht "test", an AI generated picture located in the "files"-directory)
+  4. See the result and press any key if you want to close the window
      Note: By now only .jpg can be used in this programm! Also processed images can't be saved
 
 ## Rubric Points
