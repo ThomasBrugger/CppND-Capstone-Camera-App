@@ -32,6 +32,16 @@ You can take pictures with your webcam and change your face to a "a.w.e.s.o.m-o"
 3. Compile: `cmake .. && make`
 4. Run it: `./CameraApp`.
 
+
+## Structure
+The project consists of 3 headers and their cpp files. "App.h/.cpp", "Camera.h/.cpp" and "Imageprocessor.h/.cpp.
+App.h consists again of the classes "MyApp" (mainly to initialize the Gui of the program), "wxImagePanel" (panel to display images) and the most important
+class "MyFrame" over which Gui stuff is constructed and the exchange with the Camera as well as the Imageprocessor is made. This is done via functions and
+events. MyFrame is the core of the app.
+Camera.h consists of only one class. In this class images are taken in a while-loop initialized by a thread and displayed in a separate window. And has some
+extra function for camera-handling.
+Imageprocessor.h also consists of only one class with two functions for image processing.
+
 ## Howto
 
 * with webcam:
