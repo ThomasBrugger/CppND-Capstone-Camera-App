@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.25.0-rc4)
 
+set(CMAKE_CXX_STANDARD 17)
+
 project(CameraApp)
 file(GLOB project_SRCS src/*.cpp)
 add_executable(CameraApp ${project_SRCS})
