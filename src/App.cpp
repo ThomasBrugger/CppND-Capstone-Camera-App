@@ -234,45 +234,44 @@ void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 
 void MyFrame::OnSave(wxCommandEvent& WXUNUSED(event))
 {
-    wxTextEntryDialog* nameDlg = new wxTextEntryDialog(this, wxString("Please name Your image"), wxString("Save As"));
-    if ( nameDlg -> ShowModal() == wxID_OK )
-    {
-        wxString wxName =  nameDlg -> GetValue();
-        std::string sName = "../files/" + std::string(wxName.mb_str()) + ".jpg";
+	wxFileDialog *SaveDialog = new wxFileDialog(
+		this, _("Save File As _?"), wxEmptyString, wxEmptyString,
+		_("JPEG (*.jpg)|*.jpg"),
+		wxFD_SAVE | wxFD_OVERWRITE_PROMPT, wxDefaultPosition);
 
+	if (SaveDialog->ShowModal() == wxID_OK) 
+	{
+		wxString CurrentDocPath = SaveDialog->GetPath();
         if (checkExistance("../files/image.jpg")){
             std::ifstream input( "../files/image.jpg", std::ios::binary );
-            std::ofstream output(sName, std::ios::binary );
+            std::ofstream output(CurrentDocPath.ToStdString(), std::ios::binary );
             std::copy(std::istreambuf_iterator<char>(input), std::istreambuf_iterator<char>( ), std::ostreambuf_iterator<char>(output));
             m_bFileSaved = true;
         }
-        else{
-            wxMessageDialog* errorDlg = new wxMessageDialog(this, wxString("No file in Buffer!"), wxString("Error"), wxOK|wxCENTRE);
-            errorDlg -> ShowModal();
-        }
-    }
- 
+	}
+
+	SaveDialog->Destroy();
 }
 
 void MyFrame::OnLoad(wxCommandEvent& WXUNUSED(event))
 {
-    wxTextEntryDialog* nameDlg = new wxTextEntryDialog(this, wxString("Please type the name of the file, you want to load"), wxString("Load"));
-    if ( nameDlg -> ShowModal() == wxID_OK )
-    {
-        wxString wxName =  nameDlg -> GetValue();
-        std::string sName = "../files/" + std::string(wxName.mb_str())+ ".jpg";
-        if(checkExistance(sName)){
-            std::ifstream input(sName, std::ios::binary );
-            std::ofstream output("../files/image.jpg", std::ios::binary);
-            std::copy(std::istreambuf_iterator<char>(input), std::istreambuf_iterator<char>( ), std::ostreambuf_iterator<char>(output));
-            m_bFileSaved = false;
-        }
-        else{
-            wxMessageDialog* errorDlg = new wxMessageDialog(this, wxString("File does not exist!"), wxString("Error"), wxOK|wxCENTRE);
-            errorDlg -> ShowModal();
-        }
-        refreshLayout();
-    }
+	wxFileDialog *OpenDialog = new wxFileDialog(
+		this, _("Choose a file to open"), wxEmptyString, wxEmptyString,
+		_("JPEG (*.jpg)|*.jpg"),
+		wxFD_OPEN, wxDefaultPosition);
+
+	if (OpenDialog->ShowModal() == wxID_OK) 
+	{
+		wxString CurrentDocPath = OpenDialog->GetPath();
+        std::string sName = CurrentDocPath.ToStdString();
+        std::cout << sName << std::endl;
+        std::ifstream input(sName, std::ios::binary );
+        std::ofstream output("../files/image.jpg", std::ios::binary);
+        std::copy(std::istreambuf_iterator<char>(input), std::istreambuf_iterator<char>( ), std::ostreambuf_iterator<char>(output));
+        m_bFileSaved = false;
+	}
+    OpenDialog->Destroy();
+    refreshLayout();
 }
 /*-------------------------------------------------------------------------------------------------------------------*/
 ////////////////////Implementation of Functions called by Gui Events for Camera interaction////////////////////////////
