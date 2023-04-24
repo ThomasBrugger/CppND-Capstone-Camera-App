@@ -1,4 +1,4 @@
-# CppND: Capstone Hello World Repo
+# CppND: Capstone Camera App
 
 This is my Repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
 
